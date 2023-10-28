@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/image.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("image.png", cv2.IMREAD_GRAYSCALE)
     dft = cv2.dft(np.float32(img),flags = cv2.DFT_COMPLEX_OUTPUT) #Chuyển sang hệ fourier(hệ tọa độ tần số)
     dft_shift = np.fft.fftshift(dft) #Dịch tọa độ tần số (0, 0) về tâm của ảnh
     magnitude_spectrum = 20*np.log(cv2.magnitude(dft_shift[:,:,0],dft_shift[:,:,1])) #Tính toán độ lớn của tần số cho mỗi pixel

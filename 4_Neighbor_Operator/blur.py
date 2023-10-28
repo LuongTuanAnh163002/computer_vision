@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/image.png")
+    img = cv2.imread("morphology_close.png")
 
     #Làm mờ ảnh sử dụng phương pháp Mean với kernel có shape (5, 5)
     img_mean = cv2.blur(img, (5, 5))

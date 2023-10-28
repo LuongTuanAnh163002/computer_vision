@@ -3,7 +3,7 @@ import numpy as np
 
 #Morphology opening = dilate(erode(source))
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/morphology_open.png")
+    img = cv2.imread("morphology_open.png")
     kernels = np.ones((5, 5), dtype = np.uint8)
     dst1 = cv2.erode(img, kernel = kernels, iterations = 1)
     dst2 = cv2.dilate(dst1, kernel = kernels, iterations = 1)
