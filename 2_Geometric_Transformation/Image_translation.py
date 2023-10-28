@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/image.png")
+    img = cv2.imread("image.png")
     h, w = img.shape[0:2]
     tx = 100
     ty = 100
