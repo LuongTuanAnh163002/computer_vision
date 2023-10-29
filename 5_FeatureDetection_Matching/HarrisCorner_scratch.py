@@ -42,7 +42,7 @@ def calculate_det(A, B, C):
  return det
 
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/hcn.jpg")
+    img = cv2.imread("hcn.jpg")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     gaussian = cv2.GaussianBlur(gray, (5, 5), 2)
     IX = cv2.Sobel(gaussian, cv2.CV_64F, 1, 0, ksize = 5) #Tính đạo hàm theo chiều dọc
