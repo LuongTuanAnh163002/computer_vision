@@ -3,7 +3,8 @@ import numpy as np
 
 if __name__ == "__main__":
 
-    img = cv2.imread("anh_data/hcn.jpg")
+    img = cv2.imread("hcn.jpg")
+    img_ori = img.copy()
     if img is None:
         print("Error in read image")
 
@@ -31,6 +32,9 @@ if __name__ == "__main__":
 
             cv2.line(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
+    img_ori = cv2.resize(img_ori, (500, 500))
+    img = cv2.resize(img, (500, 500))
+    cv2.imshow("Origin image:", img_ori)
     cv2.imshow("HoughLine Transform", img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
