@@ -6,7 +6,7 @@ def image_stitching_horizontal(img1, img2):
     #img1 là ảnh ở phía trước(bên trái), img2 là ảnh ở phía sau(bên phải)
     imray1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     imray2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-    sift_detector = cv2.xfeatures2d.SIFT_create()
+    sift_detector = cv2.SIFT_create()
     kp1, des1 = sift_detector.detectAndCompute(imray1, None) #Trước
     kp2, des2 = sift_detector.detectAndCompute(imray2, None) #Sau
     bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck = False)
@@ -50,17 +50,16 @@ def draw_keypoint(im1, im2):
     plt.show()
 
 if __name__ == "__main__":
-    im1 = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\query.jpg")
-    im2 = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\train.jpg")
+    im1 = cv2.imread("query.jpg")
+    im2 = cv2.imread("train.jpg")
     #draw_keypoint(im1, im2)
     rs = image_stitching_horizontal(im1, im2)
-    plt.subplot(1, 3, 1)
-    plt.axis("off")
-    plt.imshow(cv2.cvtColor(im1, cv2.COLOR_BGR2RGB))
-    plt.subplot(1, 3, 2)
-    plt.axis("off")
-    plt.imshow(cv2.cvtColor(im2, cv2.COLOR_BGR2RGB))
-    plt.subplot(1, 3, 3)
-    plt.axis("off")
-    plt.imshow(cv2.cvtColor(rs, cv2.COLOR_BGR2RGB))
-    plt.show()
+
+    im1 = cv2.resize(im1, (600, 600))
+    im2 = cv2.resize(im2, (600, 600))
+    rs = cv2.resize(rs, (600, 600))
+    cv2.imshow("left", im1)
+    cv2.imshow("right", im2)
+    cv2.imshow("result", rs)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

@@ -1,6 +1,6 @@
 import cv2
 tracker = cv2.TrackerKCF_create()
-video = cv2.VideoCapture(r"D:\2023_Spring\CPV301\Assignment\Hog_algorithm_human\Hogvideo.mp4")
+video = cv2.VideoCapture(r"Hogvideo.mp4")
 ok,frame=video.read()
 bbox = cv2.selectROI(frame)
 ok = tracker.init(frame,bbox)
@@ -18,3 +18,5 @@ while True:
    if cv2.waitKey(1) & 0XFF== ord("q"):
         break
 cv2.destroyAllWindows()
+
+#After run code, draw bouding box to object you want tracking and click enter to see result

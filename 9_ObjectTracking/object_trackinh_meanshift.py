@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-video = cv2.VideoCapture(r"D:\2023_Spring\CPV301\Assignment\Hog_algorithm_human\Hogvideo.mp4")
+video = cv2.VideoCapture(r"Hogvideo.mp4")
 ret,frame = video.read()
 x,y,w,h = cv2.selectROI(frame)
 track_window = (x, y, w, h)

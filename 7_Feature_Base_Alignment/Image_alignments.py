@@ -52,19 +52,14 @@ def align_image(img_align, img_template, value1 = 5000, value2 = 0.9):
 
 if __name__ == "__main__":
   #Show hình ảnh
-  img1_color = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\anh2.jpg")  # Ảnh cần align
-  img2_color = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\anh1.jpg")    # Ảnh template(ảnh mẫu)
+  img1_color = cv2.imread("anh2.jpg")  # Ảnh cần align
+  img2_color = cv2.imread("anh1.jpg")    # Ảnh template(ảnh mẫu)
   img_transform = align_image(img1_color, img2_color)
+  img1_color = cv2.resize(img1_color, (500, 500))
+  img2_color = cv2.resize(img2_color, (500, 500))
+  img_transform = cv2.resize(img_transform, (500, 500))
   cv2.imshow("Template", img2_color)
   cv2.imshow("Before", img1_color)
   cv2.imshow("After", img_transform)
   cv2.waitKey(0)
   cv2.destroyAllWindows()
-
-  # plt.subplot(1, 3, 1)
-  # plt.imshow(img2_color)
-  # plt.subplot(1, 3, 2)
-  # plt.imshow(img1_color)
-  # plt.subplot(1, 3, 3)
-  # plt.imshow(transformed_img)
-  # plt.show()

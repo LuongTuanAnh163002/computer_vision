@@ -34,21 +34,28 @@ def convert_img(image):
 
 
 if __name__ == "__main__":
-    im1 = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\first.jpg")
-    im2 = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\second.jpg")
-    im3 = cv2.imread(r"D:\Sourcecodepython\Image_processing\anh_data\third.jpg")
+    im1 = cv2.imread("first.jpg")
+    im2 = cv2.imread("second.jpg")
+    im3 = cv2.imread("third.jpg")
     images = [im1, im2, im3]
     sticher = cv2.Stitcher_create()
     status, stitched_img = sticher.stitch(images) #Ghép 3 ảnh lại với nhau(Panorama)
     if not status:
         stitched_img = convert_img(stitched_img) #Xóa những phần bị đen của ảnh
-        plt.axis("off")
-        plt.imshow(cv2.cvtColor(stitched_img, cv2.COLOR_BGR2RGB))
-        plt.show()
-        print(status)
+
+        im1 = cv2.resize(im1, (400, 400))
+        im2 = cv2.resize(im2, (400, 400))
+        im3 = cv2.resize(im3, (400, 400))
+        stitched_img = cv2.resize(stitched_img, (400, 400))
+
+        cv2.imshow("result", stitched_img)
+        cv2.imshow("img1", im1)
+        cv2.imshow("img2", im2)
+        cv2.imshow("img3", im3)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
     else:
-        print("Can not be stitching image")
-        print("I think not enough keypoint to stitching")
+        print("Can not be stitching image, not enough keypoint to stitching")
 
     

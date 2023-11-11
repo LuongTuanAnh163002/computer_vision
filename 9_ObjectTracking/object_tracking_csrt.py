@@ -1,6 +1,6 @@
 import cv2
 tracker = cv2.TrackerCSRT_create()
-video = cv2.VideoCapture(r"D:\2023_Spring\CPV301\Assignment\Hog_algorithm_human\Hogvideo.mp4")
+video = cv2.VideoCapture(r"Hogvideo.mp4")
 ret,frame = video.read()
 bbox = cv2.selectROI(frame)
 ret = tracker.init(frame,bbox)
