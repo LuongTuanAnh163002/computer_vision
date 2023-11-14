@@ -10,7 +10,7 @@ def draw_bounding(image, cnt):
 
 #Hàm chính
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/anhso.jpg") #Đọc ảnh
+    img = cv2.imread("anhso.jpg") #Đọc ảnh
     imray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)# Chuyển sang ảnh xám
     _, imBin = cv2.threshold(imray, 100, 255, cv2.THRESH_BINARY)# Chuyển về ảnh đen trắng
     contours, hierarichy = cv2.findContours(imBin, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE) #Tìm contours
