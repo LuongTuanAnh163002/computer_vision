@@ -1,7 +1,7 @@
 import cv2
 
 if __name__ == "__main__":
-    img = cv2.imread("anh_data/image.png")
+    img = cv2.imread("hcn.jpg")
     #Chuyển từ ảnh màu sang ảnh xám
     imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -10,6 +10,7 @@ if __name__ == "__main__":
 
     #Tìm và vẽ tất cả contours trong ảnh
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    print(contours)
     cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
 
     #Tính diện tích của contours số 0
